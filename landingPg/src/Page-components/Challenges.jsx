@@ -11,7 +11,7 @@ export default function Challenges() {
         {
             id: 1,
             direction: { x: -100, y: 0 },
-            dimensions: "basis-1/5 min-h-[520px] h-full",
+            dimensions: "basis-1/5 min-h-[540px] h-full",
             painTitle: "Rigid, Pre-Defined Workflows",
             painContent: "SpotDraft relies heavily on structured, pre-configured workflows that don’t adapt well to real-world contract scenarios. When deals require adding new approvers, changing steps, or handling exceptions, teams often face delays or manual workarounds, slowing down the entire contract lifecycle.",
             title1: "Dynamic Workflows That Adapt Instantly",
