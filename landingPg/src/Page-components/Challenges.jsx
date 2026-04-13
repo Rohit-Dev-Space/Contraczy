@@ -169,7 +169,7 @@ export default function Challenges() {
                                                 {info.title1}
                                             </h3>
                                             <p
-                                                className={`text-base leading-relaxed ${info.id === 2 ? "w-2/3" : ""} ${info.id === 4 || info.id === 5 ? "-mt-5" : ""}`}
+                                                className={`text-base ${info.id === 2 ? "w-2/3" : ""} ${info.id === 4 || info.id === 5 ? "leading-none" : "leading-relaxed"}`}
                                                 style={{ color: "#e0e0e0" }}
                                             >
                                                 {info.content1}

@@ -295,7 +295,7 @@ export default function HeroPg() {
                     </NavigationMenu>
 
                     <div className="flex items-center gap-3">
-                        <Button className="text-md font-medium text-black hover:text-white bg-white hover:bg-black rounded-lg px-5 py-1 cursor-pointer transition-colors">
+                        <Button className="text-md font-medium text-black hover:text-white bg-white hover:bg-black rounded-lg shadow-[20px_50px_50px_rgba(0,0,0,0.3)] border border-gray-500 px-5 py-1 cursor-pointer transition-colors">
                             Log In
                         </Button>
                         <Button
