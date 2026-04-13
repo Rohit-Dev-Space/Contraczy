@@ -10,12 +10,12 @@ import Aurora from "../components/Aurora"
 import { Button } from "../components/ui/button"
 import BlurText from "../components/BlurText"
 import { useState } from "react"
-import { ArrowUpIcon, ChartNoAxesCombined, FileClock, FileText, FolderOpenDot, Globe, ReceiptText, Signature, SparklesIcon, ThumbsDown, ThumbsUp } from "lucide-react"
+import { ArrowUpIcon, ChartNoAxesCombined, FileClock, FileText, FolderOpenDot, Globe, Signature, SparklesIcon } from "lucide-react"
 import { AnimatePresence, motion } from "framer-motion"
 
 const Icon = ({ d, color = "currentColor" }) => (
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"
-        className="w-5 h-5" fill={color} aria-hidden>
+        className="w-5 h-5" fill={color} aria-hidden="true">
         <path d={d} />
     </svg>
 )
@@ -51,44 +51,6 @@ const ICONS = {
 
 const CORAI_ICONS = ["risk", "summary", "metadata"]
 
-const Icon2 = ({ d }) => (
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"
-        className="w-5 h-5 transition-colors duration-200" fill="currentColor" aria-hidden>
-        <path d={d} />
-    </svg>
-)
-
-const IconBox = ({ iconKey }) => {
-    const isCoraAi = CORAI_ICONS.includes(iconKey)
-
-    if (isCoraAi) {
-        return (
-            <span
-                className="inline-flex items-center justify-center w-9 h-9 rounded-xl flex-shrink-0"
-                style={{ background: "#f0f4ff" }}
-            >
-                <Icon d={ICONS[iconKey]} color="#1e40af" />
-            </span>
-        )
-    }
-
-    return (
-        <span
-            className="inline-flex items-center justify-center w-9 h-9 rounded-xl flex-shrink-0 transition-all duration-200"
-            style={{ background: "#f0f4ff", color: "#1e40af" }}
-        >
-            <span className="group-hover-icon-box">
-                <Icon2 d={ICONS[iconKey]} />
-            </span>
-            <style>{`
-                .group:hover .group-hover-icon-box {
-                    color: #e5e7eb;
-                }
-            `}</style>
-        </span>
-    )
-}
-
 const MenuItem = ({ iconKey, title, desc, href = "#" }) => {
     const isCoraAi = CORAI_ICONS.includes(iconKey)
 
@@ -107,7 +69,7 @@ const MenuItem = ({ iconKey, title, desc, href = "#" }) => {
             ) : (
                 <span className="inline-flex items-center justify-center w-9 h-9 rounded-xl flex-shrink-0 transition-all duration-200 group-hover:[background:#111] [background:#f0f4ff]">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"
-                        className="w-5 h-5 transition-colors duration-200 text-[#131314] group-hover:fill-[#e5e7eb]" aria-hidden>
+                        className="w-5 h-5 transition-colors duration-200 text-[#131314] group-hover:fill-[#e5e7eb]" aria-hidden="true">
                         <path d={ICONS[iconKey]} />
                     </svg>
                 </span>
@@ -123,14 +85,6 @@ const MenuItem = ({ iconKey, title, desc, href = "#" }) => {
         </NavigationMenuLink>
     )
 }
-
-const SectionLabel = ({ children }) => (
-    <p className="text-[10px] font-bold tracking-widest uppercase text-gray-400 px-2.5 pt-1 pb-1.5">
-        {children}
-    </p>
-)
-
-const Divider = () => <hr className="border-gray-100 my-1" />
 
 const floatingAnimation = {
     initial: { x: 0, y: 0, opacity: 0, scale: 0.5 },
@@ -163,22 +117,27 @@ const floatingLoop = {
 export default function HeroPg() {
     const [cancel, setCancel] = useState(false)
     return (
-        <main className="relative w-full min-h-screen flex flex-col z-20 font-satoshi">
-
-
-            <div className={`w-full bg-[#4747e1] text-white text-center text-xs py-2 px-4 z-50 ${cancel && '-translate-y-24 transform duration-800 transition-transform'} overflow-hidden relative`}>
+        <>
+            <div
+                role="alert"
+                aria-live="polite"
+                className={`w-full bg-[#4747e1] text-white text-center text-xs py-2 px-4 z-50 ${cancel && '-translate-y-24 transform duration-800 transition-transform'} overflow-hidden relative`}
+            >
                 <span className="text-gray-300">Legal Ops 2026: The State of Global CLM Adoption &amp; ROI – </span>
                 <a href="#" className="font-semibold underline underline-offset-2 hover:text-blue-300 transition-colors">
                     View the Whitepaper here!
                 </a>
-                <button onClick={() => setCancel(true)} className="absolute right-4 top-1/2 -translate-y-1/2 cursor-pointer text-gray-400 hover:text-white text-base leading-none">
+                <button
+                    onClick={() => setCancel(true)}
+                    aria-label="Dismiss announcement"
+                    className="absolute right-4 top-1/2 -translate-y-1/2 cursor-pointer text-gray-400 hover:text-white text-base leading-none"
+                >
                     ✕
                 </button>
             </div>
 
-
-            <header className=" top-0 z-40">
-                <div className="px-4 md:px-10 py-3.5 flex items-center justify-between max-w-screen-xl mx-auto">
+            <header className="mt-0 z-40">
+                <div className="px-4 md:px-10 py-3.5 flex items-center justify-between w-full gap-20">
 
                     <img
                         src="/Contractzy-logo.png"
@@ -187,7 +146,7 @@ export default function HeroPg() {
                     />
 
                     <NavigationMenu className="hidden lg:block">
-                        <NavigationMenuList className="flex items-center gap-1 ">
+                        <NavigationMenuList className="flex items-center gap-1">
 
                             <NavigationMenuItem>
                                 <NavigationMenuTrigger className="bg-transparent text-[16px] font-medium text-gray-700 hover:text-blue-600 px-3 py-2">
@@ -198,7 +157,7 @@ export default function HeroPg() {
                                     <div className="flex w-[780px] gap-0 p-4">
 
                                         <div className="flex-1 space-y-5 border-r border-gray-100">
-                                            <h2 className="text-xl font-medium">Key Features</h2>
+                                            <p className="text-xl font-medium">Key Features</p>
                                             <div className="grid grid-cols-2 gap-2">
                                                 <MenuItem iconKey="create" title="Create" desc="Create & edit contracts" />
                                                 <MenuItem iconKey="negotiate" title="Negotiate" desc="Refine contract terms" />
@@ -212,7 +171,7 @@ export default function HeroPg() {
 
                                         <div className="flex-1 space-y-3 pl-4">
                                             <div className="flex items-center text-2xl gap-1 px-2.5 pt-1 pb-2">
-                                                <h2 className="bg-gradient-to-r from-blue-700 via-blue-500 to-blue-300 bg-clip-text text-transparent font-bold flex items-center gap-2">CoraAi  <SparklesIcon size={20} fill="blue" /></h2>
+                                                <p className="bg-gradient-to-r from-blue-700 via-blue-500 to-blue-300 bg-clip-text text-transparent font-bold flex items-center gap-2">CoraAi  <SparklesIcon size={20} fill="blue" aria-hidden="true" /></p>
                                             </div>
                                             <div className="grid grid-cols-1 gap-0.5">
                                                 <MenuItem iconKey="risk" title="AI Risk Analysis" desc="Analyse and mitigate risks" />
@@ -233,7 +192,7 @@ export default function HeroPg() {
                                     <div className="flex w-[780px] gap-0 p-4">
 
                                         <div className="flex-1 pr-4 space-y-5 border-r border-gray-100">
-                                            <h2 className="text-xl font-medium">For Teams</h2>
+                                            <p className="text-xl font-medium">For Teams</p>
                                             <div className="grid grid-cols-1 gap-0.5">
                                                 <MenuItem iconKey="legal" title="Legal" desc="Empower legal teams" />
                                                 <MenuItem iconKey="procurement" title="Procurement" desc="Streamline sourcing" />
@@ -244,7 +203,7 @@ export default function HeroPg() {
                                         </div>
 
                                         <div className="flex-1 space-y-5 pl-4">
-                                            <h2 className="text-xl font-medium">For Industry</h2>
+                                            <p className="text-xl font-medium">For Industry</p>
                                             <div className="grid grid-cols-1 gap-0.5">
                                                 <MenuItem iconKey="fintech" title="Fintech" desc="Secure financial agreements" />
                                                 <MenuItem iconKey="automobile" title="Automobile" desc="Streamline supplier & dealership contracts" />
@@ -305,13 +264,13 @@ export default function HeroPg() {
 
                                 <NavigationMenuContent>
                                     <div className="w-[780px] space-y-5 p-4">
-                                        <h2 className="text-xl font-medium">Document Management System(DMS)</h2>
+                                        <p className="text-xl font-medium">Document Management System (DMS)</p>
                                         <div className="grid grid-cols-2 gap-1.5">
                                             {[
-                                                { flag: "https://cdn.prod.website-files.com/67c92cd0ce3ef590bee3ffbb/6909dcc08c92bca4b6815289_australia.png", alt: 'Australias flag', title: "Australia", desc: "Manage contracts with local compliance" },
-                                                { flag: "/NZ.png", alt: 'New zealands flag', title: "New Zealand", desc: "Optimized for Kiwi businesses" },
-                                                { flag: "https://cdn.prod.website-files.com/67c92cd0ce3ef590bee3ffbb/6909e09bd1092153319989a8_icons8-singapore-48.png", alt: 'Singapores flag', title: "Singapore", desc: "Secure and scalable for enterprise" },
-                                                { flag: "https://cdn.prod.website-files.com/67c92cd0ce3ef590bee3ffbb/6909e0b5e4d3101814135d07_icons8-middle-east-48.png", alt: 'Middle East region', title: "Middle East", desc: "Adapted for regional Regulations" },
+                                                { flag: "https://cdn.prod.website-files.com/67c92cd0ce3ef590bee3ffbb/6909dcc08c92bca4b6815289_australia.png", alt: "Australia's flag", title: "Australia", desc: "Manage contracts with local compliance" },
+                                                { flag: "/NZ.png", alt: "New Zealand's flag", title: "New Zealand", desc: "Optimized for Kiwi businesses" },
+                                                { flag: "https://cdn.prod.website-files.com/67c92cd0ce3ef590bee3ffbb/6909e09bd1092153319989a8_icons8-singapore-48.png", alt: "Singapore's flag", title: "Singapore", desc: "Secure and scalable for enterprise" },
+                                                { flag: "https://cdn.prod.website-files.com/67c92cd0ce3ef590bee3ffbb/6909e0b5e4d3101814135d07_icons8-middle-east-48.png", alt: "Middle East region flag", title: "Middle East", desc: "Adapted for regional Regulations" },
                                             ].map(({ flag, title, desc, alt }) => (
                                                 <NavigationMenuLink
                                                     key={title}
@@ -340,6 +299,12 @@ export default function HeroPg() {
                             Log In
                         </Button>
                         <Button
+                            onClick={() => {
+                                window.gtag('event', 'demo_click', {
+                                    event_category: 'CTA',
+                                    event_label: 'Book Demo Button'
+                                });
+                            }}
                             className="rounded-lg px-5 py-2 text-sm font-semibold bg-[#1d4ed8] hover:bg-black text-white cursor-pointer transition-colors"
                         >
                             Request Demo
@@ -347,137 +312,161 @@ export default function HeroPg() {
                     </div>
                 </div>
             </header>
-            <section className="py-10 px-6 md:px-16 lg:px-30 z-30 flex flex-col ">
-                <div>
-                    <div className="flex flex-col items-center">
-                        <BlurText
-                            text="Need a Smarter Alternative"
-                            delay={200}
-                            animateBy="words"
-                            direction="top"
-                            className="text-[40px] md:text-[60px] lg:text-[80px] leading-tight font-bold text-center"
-                        />
-                        <BlurText
-                            text="For SpotDraft?"
-                            delay={200}
-                            animateBy="words"
-                            direction="top"
-                            className="text-[80px] leading-22 font-bold text-center"
-                        />
+
+            <main className="relative w-full min-h-screen flex flex-col z-20 font-satoshi">
+                <section className="py-10 px-6 md:px-16 lg:px-30 z-30 flex flex-col">
+                    <div>
+                        <div className="flex flex-col items-center">
+                            <h1 className="text-[40px] md:text-[60px] lg:text-[80px] leading-tight font-bold text-center flex flex-col items-center">
+                                <BlurText
+                                    text="Need a Smarter Alternative"
+                                    delay={200}
+                                    animateBy="words"
+                                    direction="top"
+                                    className="text-[40px] md:text-[60px] lg:text-[80px] leading-tight font-bold text-center"
+                                />
+                                <BlurText
+                                    text="For SpotDraft?"
+                                    delay={200}
+                                    animateBy="words"
+                                    direction="top"
+                                    className="text-[80px] leading-22 font-bold text-center"
+                                />
+                            </h1>
+                        </div>
+                        <AnimatePresence>
+                            <motion.div
+                                initial={{ opacity: 0, y: -80 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                exit={{ opacity: 0, y: -80 }}
+                                className="mt-5 flex flex-col items-center gap-3"
+                            >
+                                <p className="text-2xl md:text-4xl mt-5 font-extrabold flex items-center gap-5">
+                                    <span className="font-light">Switch to</span>
+                                    <span className="w-fit rounded-2xl py-2 px-5 flex items-center justify-center text-white text-3xl font-semibold bg-gradient-to-r from-blue-900 via-blue-400 to-teal-300 animate-gradient bg-[length:200%_200%]">
+                                        Contractzy
+                                    </span>
+                                </p>
+                                <h2 className="mt-3 font-bold text-2xl">
+                                    A Seamless Contract &amp; Team Management Platform
+                                </h2>
+                                <p className="w-full md:w-2/3 text-lg mt-3 text-center">
+                                    If managing contracts in SpotDraft feels slow or complex, you're not alone. Contractzy simplifies everything — so your team can move faster with full control.
+                                </p>
+                            </motion.div>
+                            <motion.div
+                                initial={{ opacity: 0, y: -80 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                exit={{ opacity: 0, y: -20 }}
+                                className="mt-10 flex justify-center"
+                            >
+                                <Button
+                                    onClick={() => {
+                                        window.gtag('event', 'demo_click', {
+                                            event_category: 'CTA',
+                                            event_label: 'Book Demo Button'
+                                        });
+                                    }}
+                                    aria-label="Explore Contractzy features"
+                                    className="group text-xl flex items-center font-medium text-white shadow-xl bg-black hover:bg-blue-600 rounded-2xl px-10 py-7 cursor-pointer transition-all duration-300"
+                                >
+                                    Explore
+                                    <span aria-hidden="true" className="inline-block ml-2 transform transition-transform duration-400 group-hover:rotate-45">
+                                        <ArrowUpIcon size={25} />
+                                    </span>
+                                </Button>
+                            </motion.div>
+                        </AnimatePresence>
                     </div>
-                    <AnimatePresence>
-                        <motion.div
-                            initial={{ opacity: 0, y: -80 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            exit={{ opacity: 0, y: -80 }}
-                            className=" mt-5 flex flex-col items-center gap-3">
-                            <h2 className="text-2xl md:text-4xl mt-5 font-extrabold flex items-center gap-5"><span className="font-light ">Switch to</span>
-                                <span className="w-fit rounded-2xl py-2 px-5 flex items-center justify-center text-white text-3xl font-semibold bg-gradient-to-r from-blue-900 via-blue-400 to-teal-300 animate-gradient bg-[length:200%_200%]">
-                                    Contractzy
-                                </span>
-                            </h2>
-                            <h3 className="mt-3 font-bold text-2xl">
-                                A Seamless Contract & Team Management Platform
-                            </h3>
-                            <p className="w-full md:w-2/3 text-lg mt-3 text-center">
-                                If managing contracts in SpotDraft feels slow or complex, you're not alone. Contractzy simplifies everything — so your team can move faster with full control.                        </p>
-                        </motion.div>
-                        <motion.div
-                            initial={{ opacity: 0, y: -80 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            exit={{ opacity: 0, y: -20 }}
-                            className="mt-10 flex justify-center">
-                            <Button className="group text-xl flex items-center font-medium text-white shadow-xl bg-black hover:bg-blue-600 rounded-2xl px-10 py-7 cursor-pointer transition-all duration-300">
-                                Explore
-                                <span className="inline-block ml-2 transform transition-transform duration-400 group-hover:rotate-45">
-                                    <ArrowUpIcon size={25} />
-                                </span>
-                            </Button>
-                        </motion.div>
-                    </AnimatePresence>
+                </section>
+
+                <div className="absolute w-full h-full rotate-180 z-10 bottom-0 left-0">
+                    <Aurora
+                        colorStops={["#349eeb", "#349eeb", "#344ceb"]}
+                        blend={1.9}
+                        amplitude={0.8}
+                        speed={1.5}
+                    />
                 </div>
-            </section>
 
-            <div className="absolute w-full h-full rotate-180 z-10 bottom-0 left-0">
-                <Aurora
-                    colorStops={["#349eeb", "#349eeb", "#344ceb"]}
-                    blend={1.9}
-                    amplitude={0.8}
-                    speed={1.5}
-                />
-            </div>
-
-            <motion.div
-                custom={{ x: -200, y: -150, delay: 0.1 }}
-                variants={floatingAnimation}
-                initial="initial"
-                animate="animate"
-                className="absolute hidden md:block left-1/5 top-1/2"
-            >
-                <motion.div variants={floatingLoop} animate="animate">
-                    <FileText size={70} className="-rotate-12" />
+                <motion.div
+                    aria-hidden="true"
+                    custom={{ x: -100, y: -200, delay: 0.1 }}
+                    variants={floatingAnimation}
+                    initial="initial"
+                    animate="animate"
+                    className="absolute hidden md:block left-1/5 top-1/2"
+                >
+                    <motion.div variants={floatingLoop} animate="animate">
+                        <FileText size={70} className="-rotate-12" />
+                    </motion.div>
                 </motion.div>
-            </motion.div>
 
-            <motion.div
-                custom={{ x: -250, y: 100, delay: 0.2 }}
-                variants={floatingAnimation}
-                initial="initial"
-                animate="animate"
-                className="absolute hidden md:block left-1/4 top-1/2"
-            >
-                <motion.div variants={floatingLoop} animate="animate">
-                    <ChartNoAxesCombined size={60} className="rotate-12" />
+                <motion.div
+                    aria-hidden="true"
+                    custom={{ x: -250, y: 0, delay: 0.2 }}
+                    variants={floatingAnimation}
+                    initial="initial"
+                    animate="animate"
+                    className="absolute hidden md:block left-1/4 top-1/2"
+                >
+                    <motion.div variants={floatingLoop} animate="animate">
+                        <ChartNoAxesCombined size={60} className="rotate-12" />
+                    </motion.div>
                 </motion.div>
-            </motion.div>
 
-            <motion.div
-                custom={{ x: 200, y: 100, delay: 0.3 }}
-                variants={floatingAnimation}
-                initial="initial"
-                animate="animate"
-                className="absolute hidden md:block right-1/4 top-1/2"
-            >
-                <motion.div variants={floatingLoop} animate="animate">
-                    <FileClock size={60} className="-rotate-12" />
+                <motion.div
+                    aria-hidden="true"
+                    custom={{ x: 200, y: 0, delay: 0.3 }}
+                    variants={floatingAnimation}
+                    initial="initial"
+                    animate="animate"
+                    className="absolute hidden md:block right-1/4 top-1/2"
+                >
+                    <motion.div variants={floatingLoop} animate="animate">
+                        <FileClock size={60} className="-rotate-12" />
+                    </motion.div>
                 </motion.div>
-            </motion.div>
 
-            <motion.div
-                custom={{ x: 250, y: -120, delay: 0.4 }}
-                variants={floatingAnimation}
-                initial="initial"
-                animate="animate"
-                className="absolute hidden md:block right-1/5 top-1/2"
-            >
-                <motion.div variants={floatingLoop} animate="animate">
-                    <FolderOpenDot size={70} className="rotate-12" />
+                <motion.div
+                    aria-hidden="true"
+                    custom={{ x: 70, y: -200, delay: 0.4 }}
+                    variants={floatingAnimation}
+                    initial="initial"
+                    animate="animate"
+                    className="absolute hidden md:block right-1/5 top-1/2"
+                >
+                    <motion.div variants={floatingLoop} animate="animate">
+                        <FolderOpenDot size={70} className="rotate-12" />
+                    </motion.div>
                 </motion.div>
-            </motion.div>
 
-            <motion.div
-                custom={{ x: -200, y: 250, delay: 0.5 }}
-                variants={floatingAnimation}
-                initial="initial"
-                animate="animate"
-                className="absolute hidden md:block left-1/3 top-1/2"
-            >
-                <motion.div variants={floatingLoop} animate="animate">
-                    <Signature size={70} className="-rotate-45" />
+                <motion.div
+                    aria-hidden="true"
+                    custom={{ x: -200, y: 130, delay: 0.5 }}
+                    variants={floatingAnimation}
+                    initial="initial"
+                    animate="animate"
+                    className="absolute hidden md:block left-1/3 top-1/2"
+                >
+                    <motion.div variants={floatingLoop} animate="animate">
+                        <Signature size={70} className="-rotate-45" />
+                    </motion.div>
                 </motion.div>
-            </motion.div>
 
-            <motion.div
-                custom={{ x: 200, y: 250, delay: 0.6 }}
-                variants={floatingAnimation}
-                initial="initial"
-                animate="animate"
-                className="absolute hidden md:block right-1/3 top-1/2"
-            >
-                <motion.div variants={floatingLoop} animate="animate">
-                    <Globe size={70} className="rotate-12" />
+                <motion.div
+                    aria-hidden="true"
+                    custom={{ x: 200, y: 130, delay: 0.6 }}
+                    variants={floatingAnimation}
+                    initial="initial"
+                    animate="animate"
+                    className="absolute hidden md:block right-1/3 top-1/2"
+                >
+                    <motion.div variants={floatingLoop} animate="animate">
+                        <Globe size={70} className="rotate-12" />
+                    </motion.div>
                 </motion.div>
-            </motion.div>
-        </main>
+            </main>
+        </>
     )
 }

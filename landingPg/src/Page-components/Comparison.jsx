@@ -166,10 +166,11 @@ export default function Comparison() {
     ];
 
     return (
-        <section className="py-10 px-10">
+        <section aria-labelledby="comparison-heading" className="py-10 px-10">
             <div className="py-10 px-6 flex items-start justify-center gap- bg-gradient-to-r from-blue-700 to-blue-300 text-white rounded-lg mb-12 shadow-[20px_50px_50px_rgba(0,0,0,0.3)]">
                 <div className="w-3/5">
-                    <h1
+                    <h2
+                        id="comparison-heading"
                         ref={titleRef}
                         className="text-5xl font-bold px-10 mb-12 leading-18"
                         style={{
@@ -179,9 +180,10 @@ export default function Comparison() {
                         }}
                     >
                         See Why <span className="bg-gradient-to-r from-blue-700 via-blue-400 to-blue-200 px-5 py-1 rounded-2xl">Contractzy</span> Outperforms SpotDraft
-                    </h1>
+                    </h2>
                     <p className="text-lg px-10 w-3/4">Discover how Contractzy offers a faster, more flexible, and intuitive way to manage contracts compared to SpotDraft — enabling teams to eliminate bottlenecks, improve visibility, and close deals with greater efficiency.</p>
                     <Button
+                        aria-label="Request a demo of Contractzy"
                         className="group rounded-lg px-10 ml-10 py-5 mt-15 text-sm font-semibold bg-[#1d4ed8] hover:bg-black text-white cursor-pointer transition-colors"
                     >
                         Request a Demo
@@ -190,6 +192,7 @@ export default function Comparison() {
                         </span>
                     </Button>
                     <Button
+                        aria-label="Contact the Contractzy team"
                         className="group rounded-lg px-10 ml-10 py-5 mt-15 text-sm font-semibold bg-[#1d4ed8] hover:bg-black text-white cursor-pointer transition-colors"
                     >
                         Contact us
@@ -207,7 +210,7 @@ export default function Comparison() {
                         transition: "opacity 0.6s ease 0.15s, transform 0.6s ease 0.15s",
                     }}
                 >
-                    <table className="w-full max-w-5xl mx-auto border border-gray-200 rounded-2xl overflow-hidden">
+                    <table aria-label="Feature comparison between Contractzy and SpotDraft" className="w-full max-w-5xl mx-auto border border-gray-200 rounded-2xl overflow-hidden">
                         <thead className="bg-gray-100">
                             <tr>
                                 <th className="text-left p-5 text-lg text-black font-semibold">Feature</th>

@@ -51,7 +51,7 @@ const faqs = [
 
 export default function FAQ() {
     return (
-        <section className="w-full py-20 px-10 flex flex-col items-center justify-center">
+        <section aria-labelledby="faq-heading" className="w-full py-20 px-10 flex flex-col items-center justify-center">
             <div className="w-full max-w-3xl flex flex-col gap-12">
                 <AnimatedContent
                     distance={120}
@@ -66,10 +66,10 @@ export default function FAQ() {
                     delay={0.4}
                 >
                     <div className="flex flex-col items-center justify-center text-center gap-8">
-                        <h1 className="text-5xl font-extrabold text-blue-600">Got Questions? <br />We’ve Got Answers</h1>
+                        <h2 aria-labelledby="faq-heading" className="text-5xl font-extrabold text-blue-600">Got Questions? <br />We’ve Got Answers</h2>
                         <p className="text-gray-500 text-lg">
                             Everything you need to know about Contractzy. Can't find an answer?{' '}
-                            <a href="#" className="text-blue-600 underline underline-offset-2">Talk to our team.</a>
+                            <p className="text-blue-600 underline underline-offset-2">Talk to our team.</p>
                         </p>
                     </div>
                 </AnimatedContent>
@@ -90,7 +90,6 @@ export default function FAQ() {
                             delay={0}
                         >
                             <AccordionItem
-                                key={index}
                                 value={`item-${index}`}
                                 className="border border-gray-200 rounded-xl px-6 cursor-pointer shadow-sm bg-white"
                             >

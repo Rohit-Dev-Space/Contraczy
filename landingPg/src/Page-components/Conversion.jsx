@@ -49,7 +49,7 @@ export default function Conversion() {
     ];
 
     return (
-        <section className="bg-black w-full flex flex-col gap-10 py-20 px-10 items-center justify-center">
+        <section aria-labelledby="conversion-heading" className="bg-black w-full flex flex-col gap-10 py-20 px-10 items-center justify-center">
             <AnimatedContent
                 distance={100}
                 direction="vertical"
@@ -63,11 +63,11 @@ export default function Conversion() {
                 delay={0}
             >
                 <div className="w-fit font-extrabold text-white flex text-center items-center justify-center">
-                    <h1 className="text-4xl font-medium">Why Choose </h1>
+                    <h2 id="conversion-heading" className="text-4xl font-medium">Why Choose </h2>
                     <GradientText
                         className="text-5xl font-bold px-3"
                         colors={['#0202b3', '#4c87fc', '#51b9f5']}>
-                        <h1>Contractzy </h1>
+                        <h2>Contractzy </h2>
                     </GradientText>
                     <p className="font-extrabold text-4xl">?</p>
                 </div>
@@ -86,7 +86,7 @@ export default function Conversion() {
             >
                 <div className="flex gap-3 justify-center items-center flex-wrap text-center">
                     <p className="text-5xl text-white font-medium">
-                        CLM Platform Built for teams that needs
+                        CLM Platform Built for teams that Need
                     </p>
                     <div className="inline-block min-w-[200px]">
                         <RotatingText
@@ -124,7 +124,7 @@ export default function Conversion() {
                             <GlareHover height="400" className="w-fit h-fit bg-gradient-to-r from-[#00215f] to-[#2058dc] rounded-2xl p-5 gap-10 items-center justify-center">
                                 <div className="w-full flex items-center justify-center gap-2">
                                     <item.icon className={`w-8 h-8 ${item.text}`} />
-                                    <h2 className="text-xl text-center text-blue-400 font-bold">{item.title}</h2>
+                                    <h3 className="text-xl text-center text-blue-400 font-bold">{item.title}</h3>
                                 </div>
                                 <p className="text-gray-300 text-center">{item.description}</p>
                             </GlareHover>
@@ -145,13 +145,13 @@ export default function Conversion() {
                 delay={0}
             >
                 <div className="flex gap-10">
-                    <Button className="group text-xl flex items-center mt-4 font-medium text-white shadow-xl bg-blue-700 hover:bg-blue-600 rounded-2xl px-8 py-7 cursor-pointer transition-all duration-300">
+                    <Button aria-label="Book a demo of Contractzy" className="group text-xl flex items-center mt-4 font-medium text-white shadow-xl bg-blue-700 hover:bg-blue-600 rounded-2xl px-8 py-7 cursor-pointer transition-all duration-300">
                         Book Demo
                         <span className="inline-block ml-2 transform transition-transform duration-400 group-hover:rotate-45">
                             <ArrowUpIcon size={35} />
                         </span>
                     </Button>
-                    <Button className="group text-xl flex items-center mt-4 font-medium text-white shadow-xl bg-blue-700 hover:bg-blue-600 rounded-2xl px-8 py-7 cursor-pointer transition-all duration-300">
+                    <Button aria-label="Explore Contractzy features" className="group text-xl flex items-center mt-4 font-medium text-white shadow-xl bg-blue-700 hover:bg-blue-600 rounded-2xl px-8 py-7 cursor-pointer transition-all duration-300">
                         Explore
                         <span className="inline-block ml-2 transform transition-transform duration-400 group-hover:rotate-45">
                             <ArrowUpIcon size={35} />
