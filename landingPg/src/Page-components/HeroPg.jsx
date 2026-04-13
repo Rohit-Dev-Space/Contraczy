@@ -388,7 +388,7 @@ export default function HeroPg() {
                             exit={{ opacity: 0, y: -20 }}
                             className="mt-10 flex justify-center">
                             <Button className="group text-xl flex items-center font-medium text-white shadow-xl bg-black hover:bg-blue-600 rounded-2xl px-10 py-7 cursor-pointer transition-all duration-300">
-                                Request Demo
+                                Explore
                                 <span className="inline-block ml-2 transform transition-transform duration-400 group-hover:rotate-45">
                                     <ArrowUpIcon size={25} />
                                 </span>

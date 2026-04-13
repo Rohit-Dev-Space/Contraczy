@@ -1,5 +1,4 @@
 import { motion } from "framer-motion"
-import SplitText from "../components/SplitText";
 import GradientText from "../components/GradientText";
 import CountUp from "../components/CountUp";
 import { ArrowUpIcon } from "lucide-react";
@@ -73,7 +72,7 @@ export default function Partners() {
                         </h1>
                         <p className="w-full my-8 text-lg">Outdated, complex systems slow teams down. With a more flexible and intuitive approach, Contractzy helps streamline approvals, improve visibility, and eliminate unnecessary manual work — so your team can focus on faster execution and smarter decision-making.</p>
                         <Button className="group text-xl flex items-center mt-4 font-medium text-white shadow-xl bg-black hover:bg-blue-600 rounded-2xl px-10 py-7 cursor-pointer transition-all duration-300">
-                            Checkout
+                            Request Demo
                             <span className="inline-block ml-2 transform transition-transform duration-400 group-hover:rotate-45">
                                 <ArrowUpIcon size={25} />
                             </span>

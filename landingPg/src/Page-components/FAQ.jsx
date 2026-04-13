@@ -39,6 +39,14 @@ const faqs = [
         question: "How quickly can businesses see ROI with Contractzy?",
         answer: "Most businesses report ROI within the first few months. By reducing manual work, accelerating approvals, and preventing missed obligations, teams save significant time and cut operational costs almost immediately."
     },
+    {
+        question: "How hard is it to migrate from SpotDraft to Contractzy?",
+        answer: " Very straightforward. Our team handles the migration for you — contracts, templates, and workflows transfer over with dedicated support. Most teams are fully live within 24–48 hours."
+    },
+    {
+        question: "Will my existing contracts and data transfer over ?",
+        answer: " Yes. Contractzy supports bulk import of contracts in PDF, Word, and other formats. Your contract history, metadata, and key dates come with you."
+    },
 ]
 
 export default function FAQ() {
