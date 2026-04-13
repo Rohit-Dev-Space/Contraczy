@@ -17,6 +17,7 @@ export default function Challenges() {
             title1: "Dynamic Workflows That Adapt Instantly",
             content1: "Contractzy lets you customize workflows in real-time with a drag-and-drop builder—no developer support needed. Whether it’s adding approvals or modifying steps mid-process, your workflows adapt instantly as deals evolve.",
             image: "https://cdn.prod.website-files.com/67c92cd0ce3ef590bee3ffbb/67da9d839a48172e9425dd67_Group%2030117.png",
+            alt: "Contract workflow builder with drag-and-drop approvals",
             bgGradient: "radial-gradient(ellipse at 50% 110%, #1e3a8a 0%, #1e40af 25%, #0f172a 70%)",
         },
         {
@@ -28,6 +29,7 @@ export default function Challenges() {
             title1: "Go Live in Under 24 Hours",
             content1: "Contractzy offers rapid onboarding with guided setup, pre-built templates, and hands-on support—so your team can start managing contracts within a day, without relying on external implementation partners.",
             image: "/sol1.png",
+            alt: "Contract management onboarding dashboard with templates",
             bgGradient: "radial-gradient(ellipse at 80% 50%, #1d4ed8 0%, #1e3a8a 35%, #0f172a 75%)",
         },
         {
@@ -39,6 +41,7 @@ export default function Challenges() {
             title1: "Flexible Pricing That Grows With You",
             content1: "Contractzy offers transparent, scalable pricing that adapts to your business stage. You only pay for what you need, making it cost-effective for startups, SMEs, and enterprises alike.",
             image: "sol3.png",
+            alt: "Flexible pricing plans for contract management software",
             bgGradient: "radial-gradient(ellipse at 50% 100%, #1e40af 0%, #1e3a8a 30%, #0f172a 70%)",
             accentColor: "#93c5fd",
         },
@@ -51,6 +54,7 @@ export default function Challenges() {
             title1: "Built for Every Team, Not Just Legal",
             content1: "Contractzy offers a simple, intuitive interface that any team can use without friction.",
             image: "sol2.png",
+            alt: "Simple contract management interface for business teams",
             bgGradient: "radial-gradient(ellipse at 50% 90%, #1d4ed8 0%, #1e3a8a 30%, #0a0a1a 70%)",
         },
         {
@@ -62,16 +66,17 @@ export default function Challenges() {
             title1: "Edit Workflows Anytime",
             content1: "Contractzy lets you update workflows instantly without restarting processes.",
             image: "sol4.png",
+            alt: "Editing contract workflow in real-time dashboard",
             bgGradient: "radial-gradient(ellipse at 20% 80%, #1e3a8a 0%, #1e40af 30%, #0f172a 70%)",
         }
     ]
 
     return (
-        <section className="relative w-full py-20 px-10 pb-50 gap-18 flex flex-col items-center justify-center">
+        <section aria-labelledby="challenges-heading" className="relative w-full py-20 px-10 pb-50 gap-18 flex flex-col items-center justify-center">
 
-            {/* Heading */}
             <div className="w-full flex flex-col items-center justify-center gap-8">
                 <motion.h2
+                    id="challenges-heading"
                     initial={{ opacity: 0, y: 50 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
@@ -139,9 +144,9 @@ export default function Challenges() {
                                             <span className="w-fit text-xs font-semibold px-3 py-1 rounded-full bg-red-500/20 text-red-300 border border-red-500/30">
                                                 SpotDraft Pain
                                             </span>
-                                            <h2 className="text-2xl font-bold text-white leading-tight">
+                                            <h3 className="text-2xl font-bold text-white leading-tight">
                                                 {info.painTitle}
-                                            </h2>
+                                            </h3>
                                             <p className="text-base leading-relaxed" style={{ color: "#e0e0e0" }}>
                                                 {info.painContent}
                                             </p>
