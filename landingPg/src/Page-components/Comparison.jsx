@@ -184,7 +184,7 @@ export default function Comparison() {
                     <p className="text-lg px-10 w-3/4">Discover how Contractzy offers a faster, more flexible, and intuitive way to manage contracts compared to SpotDraft — enabling teams to eliminate bottlenecks, improve visibility, and close deals with greater efficiency.</p>
                     <Button
                         aria-label="Request a demo of Contractzy"
-                        className="group rounded-lg px-10 ml-10 py-5 mt-15 text-sm font-semibold bg-[#1d4ed8] hover:bg-black text-white cursor-pointer transition-colors"
+                        className="group rounded-lg px-10 ml-10 py-5 mt-15 text-sm font-semibold bg-black text-white cursor-pointer transition-colors"
                     >
                         Request a Demo
                         <span className="inline-block ml-2 transform transition-transform duration-400 group-hover:rotate-45">
@@ -193,7 +193,7 @@ export default function Comparison() {
                     </Button>
                     <Button
                         aria-label="Contact the Contractzy team"
-                        className="group rounded-lg px-10 ml-10 py-5 mt-15 text-sm font-semibold bg-[#1d4ed8] hover:bg-black text-white cursor-pointer transition-colors"
+                        className="group rounded-lg px-10 ml-10 py-5 mt-15 text-sm font-semibold bg-black text-white cursor-pointer transition-colors"
                     >
                         Contact us
                         <span className="inline-block ml-2 transform transition-transform duration-400 group-hover:rotate-45">
